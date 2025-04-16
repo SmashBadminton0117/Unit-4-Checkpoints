@@ -1,0 +1,65 @@
+//Unit 4 Checkpoint
+// Lawrence Mo
+//April 14th, 2025
+
+color greyBlue        = #747bbc;
+color beige           = #F5F5DC;
+color windowBlue      = #68BDF5;
+
+
+void setup() {
+  size(800, 800);
+  background(255);
+  drawHouse(200, 250);
+
+}
+  
+  
+void drawHouse(int x, int y) {
+  pushMatrix();
+  translate(x, y);
+  wall();
+  window(50, 100);
+  window(350, 100);
+  roof();
+  door(115, 225);
+  
+  popMatrix();
+  
+}
+
+
+void wall() {
+  scale(0.7);
+  fill(beige);
+  rect(0, 0, 600, 600);
+
+}
+
+void roof() {
+  fill(greyBlue);
+  triangle(0, 0, 300, -200, 600, 0);
+}
+
+
+void door(int x, int y) {
+  pushMatrix();
+  translate(x, y);
+  rect(x, y, 70, 150);
+  rect(x + 70, y, 70, 150);
+  popMatrix();
+  
+}
+
+
+void window(int x, int y) {
+  pushMatrix();
+  translate(x, y);
+  fill(windowBlue);
+  strokeWeight(2);
+  rect(0, 0, 200, 200, 1000);
+  line(100, 0, 100, 200);
+  line(0, 100, 200, 100);
+  popMatrix();
+  
+}
